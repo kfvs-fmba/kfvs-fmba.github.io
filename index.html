@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kontorfællesskabet Ved Stadsgraven FMBA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      :root {
+        --color-bg: #EFEFEF;
+        background-color: var(--color-bg);
+        font-family: system-ui;
+        font-size: calc(1rem + .2vw)
+      }
+      html {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      body {
+        max-width: 80ch;
+        text-align: center;
+      }
+      svg {
+        width: 1cap;
+        height: 1cap;
+      }
+      details {
+        text-align: left;
+      }
+      h1 {
+        background-image: url(./bg.jpg);
+        background-size: cover;
+        padding: 1ch 1em;
+        background-clip: text;
+        color: transparent;
+        position: relative;
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: '';
+        }
+
+        &::before {
+          background-image: inherit;
+          background-size: inherit;
+          z-index: -2;
+          inset: 0;
+        }
+
+        &::after {
+          background-color: var(--color-bg);
+          z-index: -1;
+          inset: 8px;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Kontorfællesskabet Ved Stadsgraven <small>FMBA</small></h1>
+    <a href="https://chat.kfvs.dk">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+      </svg>
+      Kontorchat (campfire)
+    </a>
+    ⋅
+    <a href="https://penge.kfvs.dk">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+      </svg>      
+      Økonomi
+    </a>
+    ⋅
+    <a href="https://github.com/kfvs-fmba">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 fill-slate-900">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z" />
+      </svg>
+      GitHub
+    </a>
+
+    <p>
+      Email:
+      <a href="mailto:direktion@kfvs.dk">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        </svg>
+        direktion@kfvs.dk
+      </a>
+    </p>
+    <p>
+      CVR-nr:
+      <a href="https://datacvr.virk.dk/enhed/virksomhed/44168820">44168820</a>
+    </p>
+
+    <hr />
+
+    <details>
+      <summary>Hvordan printer jeg?</summary>
+      <div>
+        <h3>Windows</h3>
+        <ol>
+          <li>Download <a href="https://dl.dell.com/FOLDER03336028M/1/Dell%201135n%20Multifunction%20Mono%20Laser%20Printer_DriverOnly_A04.zip">driverne</a> (og pak dem ud)</li>
+          <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Windows</li>
+          <li>Den skal tilføjes <strong>manuelt</strong> med IP 192.168.1.13</li>
+          <li>Du skal manuelt vælge driver, den du downloadede tidligere. Vælg filen <kbd>.\Printer\SPL\WINXP_VISTA_64\sdo2m.inf</kbd></li>
+        </ol>
+        <h3>Mac</h3>
+        <p><em>Dell printeren er virkeligheden en reskinned Samsung printer, derfor skal man selvfølgelig downloade fra HP(?)</em></p>
+        <ol>
+          <li>Download og installer <a href="https://ftp.hp.com/pub/softlib/software13/printers/SS/Print_Common_SW/Samsung_Mac_10.15_Driver_V3.92.00.dmg">driverne</a></li>
+          <li>Du er nødt til at tilføje printeren som en <strong>samsung m288x series</strong></li>
+          <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Mac</li>
+        </ol>
+        <h3>Linux</h3>
+        <ol>
+          <li>Installer driver ala. Samsung SCX-4623F</li>
+          <li>Arch Linux: <a href="https://aur.archlinux.org/packages/samsung-unified-driver">samsung-unified-driver</a> (I use arch btw)</li>
+        </ol>
+      </div>
+    </details>
+
+    <hr />
+
+    <p>Nuværende direktion: Dennis & Zach</p>
+    <p>Næste generalforsamling: ?</p>
+
+    <a href="https://billy.dk">Bogholderi: Billy</a>
+    ⋅
+    <a href="https://nordiskenergi.dk/">Strøm: Nordisk Energi</a>
+  </body>
+</html>
