@@ -7,6 +7,7 @@
     <style>
       :root {
         --color-bg: #EFEFEF;
+        --color-fg: #000000;
         background-color: var(--color-bg);
         font-family: system-ui;
         font-size: calc(1rem + .2vw)
@@ -30,6 +31,7 @@
         text-align: left;
       }
       h1 {
+        background-color: var(--color-fg);
         background-image: url(./bg.jpg);
         background-size: cover;
         padding: 1ch 1em;
@@ -44,6 +46,7 @@
         }
 
         &::before {
+          background-color: inherit;
           background-image: inherit;
           background-size: inherit;
           z-index: -2;
