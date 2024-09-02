@@ -1,139 +1,305 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Kontorfællesskabet Ved Stadsgraven FMBA</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-      :root {
-        --color-bg: #EFEFEF;
-        --color-fg: #000000;
+
+<head>
+  <title>Kontorfællesskabet Ved Stadsgraven FMBA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root {
+      --color-bg: #EFEFEF;
+      --color-fg: #000000;
+      background-color: var(--color-bg);
+      font-family: system-ui;
+      font-size: calc(1rem + .2vw)
+    }
+
+    html {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    body {
+      max-width: 80ch;
+      text-align: center;
+    }
+
+    svg {
+      width: 1cap;
+      height: 1cap;
+    }
+
+    details {
+      text-align: left;
+    }
+
+    h1 {
+      background-color: var(--color-fg);
+      background-image: url(./bg.jpg);
+      background-size: cover;
+      padding: 1ch 1em;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+      }
+
+      &::before {
+        background-color: inherit;
+        background-image: inherit;
+        background-size: inherit;
+        z-index: -2;
+        inset: 0;
+      }
+
+      &::after {
         background-color: var(--color-bg);
-        font-family: system-ui;
-        font-size: calc(1rem + .2vw)
+        z-index: -1;
+        inset: 8px;
       }
-      html {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-      body {
-        max-width: 80ch;
-        text-align: center;
-      }
-      svg {
-        width: 1cap;
-        height: 1cap;
-      }
-      details {
-        text-align: left;
-      }
-      h1 {
-        background-color: var(--color-fg);
-        background-image: url(./bg.jpg);
-        background-size: cover;
-        padding: 1ch 1em;
-        background-clip: text;
-        color: transparent;
-        position: relative;
+    }
 
-        &::before,
-        &::after {
-          position: absolute;
-          content: '';
-        }
+    @counter-style q {
+      system: extends decimal;
+      prefix: "§ ";
+    }
 
-        &::before {
-          background-color: inherit;
-          background-image: inherit;
-          background-size: inherit;
-          z-index: -2;
-          inset: 0;
-        }
-
-        &::after {
-          background-color: var(--color-bg);
-          z-index: -1;
-          inset: 8px;
-        }
+    .vedtægter {
+      h3 { 
+        display: inline;
       }
+      & > ol, & > ol > li > ol {
+        counter-reset: item;
+      }
+      li { 
+        counter-increment: item;
+        margin-block: .5rem;
+      }
+      & > ol > li::marker {
+        content: '§' counter(item) '  ';
+      }
+      & > ol > li > ol > li::marker {
+        content: counters(item, '.') '  ';
+      }
+    }
+  </style>
+</head>
 
-    </style>
-  </head>
+<body>
+  <h1>Kontorfællesskabet Ved Stadsgraven <small>FMBA</small></h1>
+  <a href="https://chat.kfvs.dk">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+    </svg>
+    Kontorchat (campfire)
+  </a>
+  ⋅
+  <a href="https://penge.kfvs.dk">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+    </svg>
+    Økonomi
+  </a>
+  ⋅
+  <a href="https://github.com/kfvs-fmba">
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 fill-slate-900">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z" />
+    </svg>
+    GitHub
+  </a>
 
-  <body>
-    <h1>Kontorfællesskabet Ved Stadsgraven <small>FMBA</small></h1>
-    <a href="https://chat.kfvs.dk">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+  <p>
+    Email:
+    <a href="mailto:direktion@kfvs.dk">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
       </svg>
-      Kontorchat (campfire)
+      direktion@kfvs.dk
     </a>
-    ⋅
-    <a href="https://penge.kfvs.dk">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-      </svg>      
-      Økonomi
-    </a>
-    ⋅
-    <a href="https://github.com/kfvs-fmba">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 fill-slate-900">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z" />
-      </svg>
-      GitHub
-    </a>
+  </p>
+  <p>
+    CVR-nr:
+    <a href="https://datacvr.virk.dk/enhed/virksomhed/44168820">44168820</a>
+  </p>
 
-    <p>
-      Email:
-      <a href="mailto:direktion@kfvs.dk">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-        </svg>
-        direktion@kfvs.dk
-      </a>
-    </p>
-    <p>
-      CVR-nr:
-      <a href="https://datacvr.virk.dk/enhed/virksomhed/44168820">44168820</a>
-    </p>
+  <hr />
 
-    <hr />
+  <details>
+    <summary>Hvordan printer jeg?</summary>
+    <div>
+      <h3>Windows</h3>
+      <ol>
+        <li>Download <a
+            href="https://dl.dell.com/FOLDER03336028M/1/Dell%201135n%20Multifunction%20Mono%20Laser%20Printer_DriverOnly_A04.zip">driverne</a>
+          (og pak dem ud)</li>
+        <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Windows</li>
+        <li>Den skal tilføjes <strong>manuelt</strong> med IP 192.168.1.13</li>
+        <li>Du skal manuelt vælge driver, den du downloadede tidligere. Vælg filen
+          <kbd>.\Printer\SPL\WINXP_VISTA_64\sdo2m.inf</kbd></li>
+      </ol>
+      <h3>Mac</h3>
+      <p><em>Dell printeren er virkeligheden en reskinned Samsung printer, derfor skal man selvfølgelig downloade fra
+          HP(?)</em></p>
+      <ol>
+        <li>Download og installer <a
+            href="https://ftp.hp.com/pub/softlib/software13/printers/SS/Print_Common_SW/Samsung_Mac_10.15_Driver_V3.92.00.dmg">driverne</a>
+        </li>
+        <li>Du er nødt til at tilføje printeren som en <strong>samsung m288x series</strong></li>
+        <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Mac</li>
+      </ol>
+      <h3>Linux</h3>
+      <ol>
+        <li>Installer driver ala. Samsung SCX-4623F</li>
+        <li>Arch Linux: <a href="https://aur.archlinux.org/packages/samsung-unified-driver">samsung-unified-driver</a>
+          (I use arch btw)</li>
+      </ol>
+    </div>
+  </details>
 
-    <details>
-      <summary>Hvordan printer jeg?</summary>
-      <div>
-        <h3>Windows</h3>
+  <hr />
+
+  <p>Nuværende direktion: Dennis & Zach</p>
+  <p>Generalforsamling: 5. november 2024</p>
+
+  <a href="https://billy.dk">Bogholderi: Billy</a>
+  ⋅
+  <a href="https://nordiskenergi.dk/">Strøm: Nordisk Energi</a>
+
+  <details open class="vedtægter">
+    <summary>Vedtægter (pr. 3 juli 2023)</summary>
+
+    <h2>VEDTÆGTER FOR KONTORFÆLLESSKABET VED STADSGRAVEN FMBA</h2>
+    <ol>
+      <li>
+        <h3>Navn, lovgrundlag og hjemsted</h3>
         <ol>
-          <li>Download <a href="https://dl.dell.com/FOLDER03336028M/1/Dell%201135n%20Multifunction%20Mono%20Laser%20Printer_DriverOnly_A04.zip">driverne</a> (og pak dem ud)</li>
-          <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Windows</li>
-          <li>Den skal tilføjes <strong>manuelt</strong> med IP 192.168.1.13</li>
-          <li>Du skal manuelt vælge driver, den du downloadede tidligere. Vælg filen <kbd>.\Printer\SPL\WINXP_VISTA_64\sdo2m.inf</kbd></li>
+          <li>Kontorfællesskabet Ved Stadsgraven FMBA er en forening med begrænset ansvar, der er
+            omfattet af § 3 i Lov om visse erhvervsdrivende virksomheder og har hjemsted i Københavns
+            Kommune.</li>
         </ol>
-        <h3>Mac</h3>
-        <p><em>Dell printeren er virkeligheden en reskinned Samsung printer, derfor skal man selvfølgelig downloade fra HP(?)</em></p>
+      </li>
+      <li>
+        <h3>Formål</h3>
+        <p>Foreningens formål er:</p>
         <ol>
-          <li>Download og installer <a href="https://ftp.hp.com/pub/softlib/software13/printers/SS/Print_Common_SW/Samsung_Mac_10.15_Driver_V3.92.00.dmg">driverne</a></li>
-          <li>Du er nødt til at tilføje printeren som en <strong>samsung m288x series</strong></li>
-          <li>Find selv ud af hvordan man tilføjer en <em>netværks-printer</em> til Mac</li>
+          <li>At leje lokalerne beliggende matr. nr. 423 Amagerbros kvarter, København, med postadresse Ved Stadsgraven 7 og 9, kælderen, 2300 København S, til brug for foreningens medlemmer til erhvervsmæssige og almennyttige formål.</li>
+          <li>At administrere lejemålene i overensstemmelse med de gældende lejekontrakter og repræsentere medlemmerne i forhold til udlejer, naboer og andre fælles samarbejdspartnere.</li>
+          <li>At danne ramme om udvikling af demokratiske og kooperative virksomheder med et sundt arbejdsmiljø og økonomisk, socialt og miljømæssigt bæredygtig drift, samt om fælles faciliteter og aktiviteter på områder, hvor samarbejde kan give stordriftsfordele og synergi, for eksempel i form af fælles møderum, rengørings-, indkøbs-, spise-, forsikrings-, bogholderi- og rådgivningsordninger.</li>
+          <li>At fremme erhvervsmæssigt samvirke, personlige relationer og socialt samvær mellem medlemmerne gennem informations- og erfaringsudveksling, uddannelsesmæssige, kulturelle og sociale aktiviteter, herunder i samarbejde med andre lignende fællesskaber og virksomheder.</li>
+          <li>At eje, medeje, drive og administrere fælles projekter og aktiviteter i overensstemmelse med foreningens vedtægter, beslutninger og aftaler.</li>
+          <li>At drive foreningen på grundlag af almindelige demokratiske principper, hvor medlemmernes rettigheder og forpligtelser som udgangspunkt er lige og uafhængige af økonomiske indskud og bidrag, men kan differentieres efter saglige og objektive kriterier. Retningslinjer for anvendelsen af lejemålet, fordelingen af arealer og udgifter, medlemmernes betalings- og arbejdsforpligtelser og foreningens drift i øvrigt vedtages med flertal som for vedtægtsændringer.</li>
+          <li>At følge og fremme de internationale regler, værdier og principper for kooperativer, som er vedtaget af International Cooperative Alliance (ICA).</li>
+          <li>At anvende eventuel overskydende formue ved opløsning af foreningen til almennyttige, almenvelgørende eller kooperative formål efter generalforsamlingens beslutning i forbindelse med godkendelse af likvidationsregnskabet.</li>
         </ol>
-        <h3>Linux</h3>
+      </li>
+      <li>
+        <h3>Hæftelse og kapital</h3>
         <ol>
-          <li>Installer driver ala. Samsung SCX-4623F</li>
-          <li>Arch Linux: <a href="https://aur.archlinux.org/packages/samsung-unified-driver">samsung-unified-driver</a> (I use arch btw)</li>
+          <li>Ingen af foreningens deltagere hæfter personligt, uden begrænsning og solidarisk. Medlemmernes hæftelse er begrænset til deres kapitalindskud.</li>
+          <li>Foreningen har vekslende deltagerantal. Medlemmernes demokratiske, forvaltningsmæssige og økonomiske rettigheder er ikke bestemt af kapitalandele.</li>
+          <li>Størrelsen af foreningens indskudskapital og medlemmernes kapitalandele vedtages af generalforsamlingen med flertal som for vedtægtsændringer og fremgår af foreningens bogholderi og regnskab. Der udstedes ikke andelsbeviser. Medlemmerne har ikke pligt til at indskyde yderligere kapital, medmindre det vedtages med flertal som for vedtægtsændringer og aftales skriftligt mellem direktionen og det enkelte medlem inden for et afgrænset beløb.</li>
+          <li>Medlemmernes kapitalindskud tilbagebetales ved udtræden og opløsning af foreningen til den nominelle værdi uden forrentning, eventuelt i afdrag efter retningslinjer vedtaget med flertal som for vedtægtsændringer. Udbetaling ved udtræden eller opløsning af foreningen må ikke overstige en forholdsmæssig andel af foreningens nettoformue.</li>
+          <li>Medlemmernes kapitalandele, rettigheder og forpligtelser må ikke overdrages, indløses, belånes, stilles til sikkerhed eller på anden måde til rådighed for tredjepart uden godkendelse af generalforsamlingen og skriftlig aftale med direktionen.</li>
         </ol>
-      </div>
-    </details>
+      </li>
+      <li>
+        <h3>Medlemmer</h3>
+        <ol>
+          <li>Foreningen skal have mindst to medlemmer, ellers skal den opløses.</li>
+          <li>Medlemskab kan være individuelt for fysiske personer og kollektivt for virksomheder uanset deres juridiske organisationsform, hvis de er demokratisk styrede uden bestemmende indflydelse for medejere eller andre, der ikke deltager aktivt i virksomhedens drift i kontorfællesskabet.</li>
+          <li>Ved ansøgning om medlemskab forpligter ansøgeren sig til at overholde foreningens vedtægter, retningslinjer, beslutninger og aftaler samt til at indbetale eller indgå bindende aftale om betaling af kapitalindskud.</li>
+          <li>Direktionen træffer afgørelse om optagelse af nye medlemmer efter høring af de øvrige medlemmer.</li>
+        </ol>
+      </li>
+      <li>
+        <h3>Ind- og udtræden</h3>
+        <ol>
+          <li>Aftaler om ind- og udtræden af medlemmer skal indgås skriftligt med direktionen, herunder om kapitalindskud og øvrige vilkår for medlemskabet vedtaget af generalforsamlingen.</li>
+          <li>Udtræden kan ske ved skriftlig meddelelse til direktionen med mindst tre måneders varsel til den første i en måned, dog ikke tidligere end et eventuelt andet opsigelses- eller ophørstidspunkt, der er fastsat ved skriftlig aftale mellem medlemmet og foreningen. Medlemskabet ophører umiddelbart ved et medlems eksklusion eller konkurs.</li>
+          <li>Et medlem kan ekskluderes ved væsentlig misligholdelse af forpligtelser efter foreningens vedtægter, retningslinjer, beslutninger og aftaler, herunder betalings- og arbejdsforpligtelser.</li>
+          <li>Eksklusion kan meddeles skriftligt af direktionen efter høring af de øvrige medlemmer med omgående virkning som suspension af medlemskabet. Inden eksklusion skal forholdet være påtalt skriftligt over for medlemmet med rimelig frist for høring og eventuel mægling.</li>
+          <li>Direktionens beslutning om eksklusion skal begrundes skriftligt og kan indbringes for generalforsamlingen, der træffer endelig afgørelse med flertal som for vedtægtsændringer.</li>
+        </ol>
+      </li>
+      <li>
+        <h3>Ledelse og tegningsregel</h3>
+        <ol>
+          <li>Foreningens øverste myndighed er generalforsamlingen. Direktionen varetager foreningens daglige drift mellem generalforsamlingerne.</li>
+          <li>Direktionen skal bestå af mindst to medlemmer, der vælges af generalforsamlingen ved almindeligt flertalsvalg.</li>
+          <li>Direktionen træffer beslutninger ved konsensus eller simpelt flertal. Ved stemmelighed bortfalder forslaget.</li>
+          <li>Foreningen tegnes af to medlemmer af direktionen i fællesskab.</li>
+          <li>Direktionen har pligt til straks at oplyse medlemmerne om væsentlige uoverensstemmelser i forhold til foreningens vedtægter, retningslinjer, beslutninger, aftaler og budgetter og må ikke foretage dispositioner uden bemyndigelse, medmindre beslutningen ikke kan afvente indkaldelse af generalforsamling uden væsentlig skade eller ulempe for foreningen.</li>
+        </ol>
+      </li>
+      <li>
+        <h3>Generalforsamlinger</h3>
+        <ol>
+          <li>Hvert medlem har én stemme på generalforsamlingerne, medmindre der på to forudgående generalforsamlinger med mindst to og højst fem ugers mellemrum med flertal som for vedtægtsændringer er vedtaget differentierede stemmerettigheder efter saglige og objektive kriterier. Der kan stemmes ved skriftlig fuldmagt til et andet medlem.</li>
+          <li>Generalforsamlinger kan afholdes ved fysisk tilstedeværelse eller via et elektronisk medie, der er anvist i indkaldelsen og tilgængeligt for alle medlemmer.</li>
+          <li>Ordinær generalforsamling skal afholdes hvert år inden tre måneder efter regnskabsårets afslutning og skal indkaldes skriftligt af direktionen senest fem uger før afholdelsen.</li>
+          <li>Ekstraordinær generalforsamling skal afholdes, når direktionen beslutter det, eller når mindst halvdelen af foreningens medlemmer kræver det skriftligt med begrundet forslag til dagsorden. Ekstraordinær generalforsamling skal indkaldes skriftligt af direktionen tidligst to uger og senest fem uger efter, at afholdelsen er besluttet eller krævet.</li>
+          <li>Forslag til behandling på generalforsamlinger skal være modtaget skriftligt og udsendt af direktionen senest én uge før afholdelsen.</li>
+          <li>Medmindre andet fremgår af vedtægterne, træffer generalforsamlinger beslutninger ved konsensus eller simpelt flertal på møder, der er indkaldt til alle medlemmer og som mindst tre fjerdedele af medlemmerne deltager i. Ved stemmelighed bortfalder forslaget.</li>
+          <li>
+            Dagsordenen for den ordinære generalforsamling skal mindst omfatte følgende punkter:
+            <ol>
+              <li>Valg af dirigent og referent.</li>
+              <li>Direktionens beretning for det foregående år.</li>
+              <li>Godkendelse af årsregnskab for det foregående regnskabsår, herunder direktionens indstilling om anvendelse af eventuelt overskud eller dækning af eventuelt underskud.</li>
+              <li>Fremlæggelse af forslag til budget ind til næste ordinære generalforsamling.</li>
+              <li>Behandling af indkomne forslag, herunder vedtagelse af budget.</li>
+              <li>Valg af direktion.</li>
+              <li>Eventuelle øvrige valg.</li>
+              <li>Eventuelt.</li>
+            </ol>
+            <li>Referater af generalforsamlinger skal underskrives af dirigenten og referenten og være tilgængelige for alle medlemmer.</li>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <h3>Økonomi og regnskab</h3>
+        <ol>
+          <li>Foreningens regnskabsår følger kalenderåret.</li>
+          <li>I foreningens bogholderi skal føres individuelle drifts- og kapitalkonti for hvert medlem.</li>
+          <li>Den beløbsmæssige størrelse af de enkelte medlemmers kapitalandele og eventuelle andele af foreningens formue samt eventuelle økonomiske mellemværender mellem foreningen og de enkelte medlemmer skal fremgå af bogholderiet og noter til årsregnskabet.</li>
+          <li>Foreningen skal altid have et forsvarligt kapitalberedskab og tilstrækkelig likviditet til at opfylde sine forpligtelser, efterhånden som de forfalder.</li>
+          <li>I foreningens budget skal tilstræbes balance mellem udgifter og indtægter, så medlemmernes løbende betalinger ikke overstiger, hvad der er nødvendigt, med en rimelig sikkerhedsmargin i forhold til forventelige prisstigninger, uforudseelige udgifter og passende reserver.</li>
+          <li>På den ordinære generalforsamling vedtages ved simpelt flertal løbende medlemsbidrag til dækning af budgetterede udgifter og reserver på grundlag af retningslinjer vedtaget med flertal som for vedtægtsændringer. Medlemsbidragene betales månedsvis forud med forfald den første bankdag i måneden.</li>
+        </ol>
+      </li>
+      <li>
+        <h3>Vedtægtsændringer og opløsning</h3>
+        <ol>
+          <li>Vedtægtsændringer kræver et flertal på mindst tre fjerdele blandt de deltagende stemmeberettigede medlemmer på to generalforsamlinger med mindst én og højst fem ugers mellemrum.</li>
+          <li>Til beslutning om foreningens opløsning kræves et flertal på mindst tre fjerdedele af samtlige stemmeberettigede medlemmer på to generalforsamlinger med mindst én og højst fem ugers mellemrum.</li>
+          <li>Bekræftes beslutning om opløsning på den anden generalforsamling, vælges samtidig en uvildig, særligt sagkyndig likvidator.</li>
+          <li>Når behandlingen af foreningens opløsning kan afsluttes, indkalder likvidator til endnu en generalforsamling, der med simpelt flertal blandt de deltagende stemmeberettigede medlemmer træffer beslutning om udlodning af eventuelt overskud efter betaling af alle kreditorer og tilbagebetaling af medlemmernes indskudskapital. Endeligt revideret likvidationsregnskab og bekræftelse af foreningens afregistrering tilsendes samtlige medlemmer.</li>
+          <li>Opløsning må ikke ske ved erklæring, men kun ved frivillig likvidation eller tvangsopløsning. Lejemålet må ikke overdrages til andre uden udlejers skriftlige godkendelse.</li>
+        </ol>
+      </li>
+      <li>
+        <h3>Uoverensstemmelser</h3>
+        <ol>
+          <li>Uoverensstemmelser mellem medlemmerne om foreningens forhold, der ikke kan løses af medlemmerne selv efter vedtægterne, skal søges forligt gennem mægling ved en uvildig særligt sagkyndig person, der udpeges af parterne i enighed eller af retten på foreningens hjemsted.</li>
+          <li>Indbringes sag for retten, kan omkostninger ved forudgående mægling indgå i rettens afgørelse.</li>
+        </ol>
+      </li>
+    </ol>
+  </details>
+</body>
 
-    <hr />
-
-    <p>Nuværende direktion: Dennis & Zach</p>
-    <p>Generalforsamling: 5. november 2024</p>
-
-    <a href="https://billy.dk">Bogholderi: Billy</a>
-    ⋅
-    <a href="https://nordiskenergi.dk/">Strøm: Nordisk Energi</a>
-  </body>
 </html>
