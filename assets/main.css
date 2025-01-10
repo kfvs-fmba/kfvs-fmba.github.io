@@ -19,7 +19,7 @@ summary { cursor: row-resize }
 button { cursor: pointer }
 
 /* svg icons */
-img {
+.icon {
   width: 1cap;
   height: 1cap;
 }
