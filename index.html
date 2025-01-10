@@ -1,138 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
 
 <head>
   <title>Kontorfællesskabet Ved Stadsgraven FMBA</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    :root {
-      --color-bg: #EFEFEF;
-      --color-fg: #000000;
-      background-color: var(--color-bg);
-      font-family: system-ui;
-      font-size: calc(1rem + .2vw)
-    }
-
-    html {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    body {
-      max-width: 80ch;
-      text-align: center;
-    }
-
-    svg {
-      width: 1cap;
-      height: 1cap;
-    }
-
-    details {
-      text-align: left;
-    }
-
-    h1 {
-      background-color: var(--color-fg);
-      background-image: url(./bg.jpg);
-      background-size: cover;
-      padding: 1ch 1em;
-      background-clip: text;
-      color: transparent;
-      position: relative;
-
-      &::before,
-      &::after {
-        position: absolute;
-        content: '';
-      }
-
-      &::before {
-        background-color: inherit;
-        background-image: inherit;
-        background-size: inherit;
-        z-index: -2;
-        inset: 0;
-      }
-
-      &::after {
-        background-color: var(--color-bg);
-        z-index: -1;
-        inset: 8px;
-      }
-    }
-
-    @counter-style q {
-      system: extends decimal;
-      prefix: "§ ";
-    }
-
-    .vedtægter {
-      h3 { 
-        display: inline;
-      }
-      & > ol, & > ol > li > ol {
-        counter-reset: item;
-      }
-      li { 
-        counter-increment: item;
-        margin-block: .5rem;
-      }
-      & > ol > li::marker {
-        content: '§' counter(item) '  ';
-      }
-      & > ol > li > ol > li::marker {
-        content: counters(item, '.') '  ';
-      }
-    }
-
-    button {
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="main.css" />
   <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
   <h1>Kontorfællesskabet Ved Stadsgraven <small>FMBA</small></h1>
+
   <a href="https://chat.kfvs.dk">
-    <img src="icons/chat-fill.svg" />
-    Kontorchat (campfire)
+    <img src="icons/chat-fill.svg" /> Kontorchat (campfire)
   </a>
   ⋅
   <a href="https://github.com/kfvs-fmba">
-    <img src="icons/github.svg" />
-    GitHub
+    <img src="icons/github.svg" /> GitHub
   </a>
   ⋅
   <a href="https://docs.google.com/spreadsheets/d/1ChEqmFxTDL89ikZvBl3AWlsUIBCXh6_IHFmSunhAyto">
-    <img src="icons/egg-fried.svg" />
-    Frokost
+    <img src="icons/file-spreadsheet-fill.svg" /> Frokost
   </a>
 
   <p>
     Email:
     <a href="mailto:direktion@kfvs.dk">
-      <img src="icons/envelope-at.svg" />
-      <span>direktion@kfvs.dk</span>
+      <img src="icons/envelope-at.svg" /> <span>direktion@kfvs.dk</span>
     </a>
     <button hidden data-copy="direktion@kfvs.dk">
-      <img src="icons/copy.svg" />
-      kopier til udklipsholder
+      <img src="icons/copy.svg" /> kopier til udklipsholder
     </button>
   </p>
+
   <p>
     CVR-nr:
     <a href="https://datacvr.virk.dk/enhed/virksomhed/44168820">44168820</a>
     <button hidden data-copy="44168820">
-      <img src="icons/copy.svg" />
-      kopier til udklipsholder
+      <img src="icons/copy.svg" /> kopier til udklipsholder
     </button>
   </p>
+
+  <p>Nuværende direktion: Dennis & Zach</p>
+
+  <a href="https://billy.dk">Bogholderi: Billy</a>
+  ⋅
+  <a href="https://nordiskenergi.min-forsyning.dk/login">Strøm: Nordisk Energi</a> (kundenr K7633060)
 
   <hr />
 
@@ -142,7 +56,7 @@
       <h3>Opstart</h3>
       <p>Få tidligere direktion til at hjælpe med at blive opsat i:</p>
       <ul>
-        <li>Bank - sparekassen danmark via <a href="https://app.unioo.io/da/login">unioo.io</a></li>
+        <li>Bank - sparekassen danmark via <a href="https://app.unioo.io/da/login">unioo.io</a>, køb et nyt betalingskort</li>
         <li>Bogholderi - <a href="https://mit.billy.dk/login">billy.dk</a></li>
         <li>E-mail - <a href="https://admin.migadu.com/public/login">migadu.com</a></li>
       </ul>
@@ -197,15 +111,6 @@
       </ol>
     </div>
   </details>
-
-  <hr />
-
-  <p>Nuværende direktion: Dennis & Zach</p>
-  <p>Generalforsamling: 5. november 2024</p>
-
-  <a href="https://billy.dk">Bogholderi: Billy</a>
-  ⋅
-  <a href="https://nordiskenergi.dk/">Strøm: Nordisk Energi</a>
 
   <hr />
 

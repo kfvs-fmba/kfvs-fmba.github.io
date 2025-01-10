@@ -1,0 +1,86 @@
+html {
+  --color-bg: #EFEFEF;
+  --color-fg: #000000;
+  background-color: var(--color-bg);
+  font-family: system-ui;
+  font-size: calc(1rem + .2vw);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body {
+  max-width: 80ch;
+  text-align: center;
+}
+
+/* svg icons */
+img {
+  width: 1cap;
+  height: 1cap;
+}
+
+details {
+  text-align: left;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  background-color: var(--color-fg);
+  background-image: url(./bg.jpg);
+  background-size: cover;
+  padding: 1ch 1em;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+  }
+
+  &::before {
+    background-color: inherit;
+    background-image: inherit;
+    background-size: inherit;
+    z-index: -2;
+    inset: 0;
+  }
+
+  &::after {
+    background-color: var(--color-bg);
+    z-index: -1;
+    inset: 8px;
+  }
+}
+
+@counter-style q {
+  system: extends decimal;
+  prefix: "§ ";
+}
+
+.vedtægter {
+  h3 { 
+    display: inline;
+  }
+  & > ol, & > ol > li > ol {
+    counter-reset: item;
+  }
+  li { 
+    counter-increment: item;
+    margin-block: .5rem;
+  }
+  & > ol > li::marker {
+    content: '§' counter(item) '  ';
+  }
+  & > ol > li > ol > li::marker {
+    content: counters(item, '.') '  ';
+  }
+}
