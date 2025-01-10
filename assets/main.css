@@ -10,12 +10,13 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-body {
-  max-width: 80ch;
   text-align: center;
 }
+
+body { max-width: 80ch }
+details { text-align: left }
+summary { cursor: row-resize }
+button { cursor: pointer }
 
 /* svg icons */
 img {
@@ -23,18 +24,13 @@ img {
   height: 1cap;
 }
 
-details {
-  text-align: left;
-
-  summary {
-    cursor: row-resize;
-  }
+table {
+  margin-inline: auto;
+  margin-top: 1em;
+  border-spacing: 1em 0;
 }
 
-button {
-  cursor: pointer;
-}
-
+/* "Logo" */
 h1 {
   background-color: var(--color-fg);
   background-image: url(./images/bg.jpg);
