@@ -94,6 +94,7 @@
       cursor: pointer;
     }
   </style>
+  <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
@@ -119,7 +120,7 @@
       <img src="icons/envelope-at.svg" />
       <span>direktion@kfvs.dk</span>
     </a>
-    <button onClick="navigator.clipboard.writeText('direktion@kfvs.dk')">
+    <button hidden data-copy="direktion@kfvs.dk">
       <img src="icons/copy.svg" />
       kopier til udklipsholder
     </button>
@@ -127,7 +128,7 @@
   <p>
     CVR-nr:
     <a href="https://datacvr.virk.dk/enhed/virksomhed/44168820">44168820</a>
-    <button onClick="navigator.clipboard.writeText('44168820')">
+    <button hidden data-copy="44168820">
       <img src="icons/copy.svg" />
       kopier til udklipsholder
     </button>
