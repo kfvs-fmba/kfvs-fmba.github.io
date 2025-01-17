@@ -18,6 +18,10 @@ details { text-align: left }
 summary { cursor: row-resize }
 button { cursor: pointer }
 
+.highlight {
+  background: oklch(79.38% 0.1621 94.24 / 50%);
+}
+
 /* svg icons */
 .icon {
   width: 1cap;

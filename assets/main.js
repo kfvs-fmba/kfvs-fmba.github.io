@@ -22,4 +22,18 @@ addEventListener("DOMContentLoaded", () => {
     }
     element.insertAdjacentHTML('beforeend',`<tr><th>Total</th><td>${sum.toLocaleString()}</td></td>`)
   }
+
+  // Allow linking to sections
+  function openHashTarget() {
+    const hash = decodeURIComponent(location.hash).substring(1)
+    const details = document.querySelector(`details[data-open-hash=${hash}]`)
+    if (details) {
+      details.open = true
+      details.scrollIntoView()
+      document.querySelector('.highlight')?.classList.remove('highlight')
+      details.classList.add('highlight')
+    }
+  }
+  window.addEventListener('hashchange', openHashTarget)
+  openHashTarget()
 })
