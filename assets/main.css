@@ -12,17 +12,13 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  text-align: center;
 }
 
 body { max-width: 80ch }
-details, article { text-align: left }
 summary { cursor: row-resize }
 button { cursor: pointer }
 
 section#faq {
-  text-align: left;
-
   nav ol { padding: 0 }
   nav li { list-style: none }
   nav a {
@@ -86,6 +82,7 @@ table[data-sum] td { text-align: right }
 
 /* "Logo" */
 h1 {
+  text-align: center;
   background-color: var(--color-fg);
   background-image: url(./images/bg.jpg);
   background-size: cover;

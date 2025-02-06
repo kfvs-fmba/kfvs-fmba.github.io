@@ -1,15 +1,13 @@
 addEventListener("DOMContentLoaded", () => {
-  // Table of contents
+  // Table of contents highlighting
   const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      const id = entry.target.getAttribute('id')
-      const active = entry.intersectionRatio > 0
-      const element = document.querySelector(`a[href="#${id}"]`)
-      element.classList.toggle('active', active)
+    for (const { target, isIntersecting } of entries) {
+      const element = document.querySelector(`a[href="#${target.id}"]`)
+      element.classList.toggle('active', isIntersecting)
     }
   })
-  for (const section of document.querySelectorAll('#faq article[id]')) {
-    observer.observe(section)
+  for (const element of document.querySelectorAll('#faq article[id]')) {
+    observer.observe(element)
   }
 
   // Copy to clipboard buttons
@@ -35,18 +33,4 @@ addEventListener("DOMContentLoaded", () => {
     }
     element.insertAdjacentHTML('beforeend',`<tr><th>Total</th><td>${sum.toLocaleString()}</td></td>`)
   }
-
-  // Allow linking to sections
-  function openHashTarget() {
-    const hash = decodeURIComponent(location.hash).substring(1)
-    const details = document.querySelector(`details[data-open-hash=${hash}]`)
-    if (details) {
-      details.open = true
-      details.scrollIntoView()
-      document.querySelector('.highlight')?.classList.remove('highlight')
-      details.classList.add('highlight')
-    }
-  }
-  window.addEventListener('hashchange', openHashTarget)
-  openHashTarget()
 })
