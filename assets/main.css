@@ -1,11 +1,16 @@
 *, *::after, *::before { box-sizing: border-box }
 
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
 html {
   --color-bg: #EFEFEF;
   --color-fg: #000000;
   background-color: var(--color-bg);
   font-family: system-ui;
-  font-size: calc(1rem + .2vw);
+  font-size: clamp(.9rem, 2vw, 1.5rem);
 
   display: flex;
   flex-direction: column;
