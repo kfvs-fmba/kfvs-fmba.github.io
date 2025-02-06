@@ -1,4 +1,17 @@
 addEventListener("DOMContentLoaded", () => {
+  // Table of contents
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      const id = entry.target.getAttribute('id')
+      const active = entry.intersectionRatio > 0
+      const element = document.querySelector(`a[href="#${id}"]`)
+      element.classList.toggle('active', active)
+    }
+  })
+  for (const section of document.querySelectorAll('#faq article[id]')) {
+    observer.observe(section)
+  }
+
   // Copy to clipboard buttons
   for (const element of document.querySelectorAll("button[data-copy]")) {
     element.hidden = false

@@ -1,3 +1,5 @@
+*, *::after, *::before { box-sizing: border-box }
+
 html {
   --color-bg: #EFEFEF;
   --color-fg: #000000;
@@ -14,9 +16,55 @@ html {
 }
 
 body { max-width: 80ch }
-details { text-align: left }
+details, article { text-align: left }
 summary { cursor: row-resize }
 button { cursor: pointer }
+
+section#faq {
+  text-align: left;
+
+  nav ol { padding: 0 }
+  nav li { list-style: none }
+  nav a {
+    display: block;
+    padding: .5ex;
+    transition: background .2s, border-color .2s;
+    border-left: 2px solid lightgray;
+  }
+
+  article + article {
+    border-top: 1px dashed black;
+    padding-block: 2em;
+  }
+
+  @media (min-width: 769px) {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 1fr 10em;
+    grid-template-areas: "main toc";
+
+    nav {
+      grid-area: toc;
+      align-self: start;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a.active {
+      background: rgba(0,0,0,.1);
+      border-color: darkgray;
+    }
+  }
+}
+
+h3 { position: relative }
+h3 a {
+  display: none;
+  position: absolute;
+  width: 2em;
+  left: -2em;
+}
+h3:hover a { display: block }
 
 .highlight {
   background: oklch(79.38% 0.1621 94.24 / 50%);
@@ -67,11 +115,6 @@ h1 {
   }
 }
 
-@counter-style q {
-  system: extends decimal;
-  prefix: "§ ";
-}
-
 .vedtægter {
   h3 { 
     display: inline;
@@ -88,5 +131,9 @@ h1 {
   }
   & > ol > li > ol > li::marker {
     content: counters(item, '.') '  ';
+  }
+  @counter-style q {
+    system: extends decimal;
+    prefix: "§ ";
   }
 }
