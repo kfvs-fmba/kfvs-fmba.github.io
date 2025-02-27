@@ -26,6 +26,7 @@ addEventListener("DOMContentLoaded", () => {
     let sum = 0;
     for (const td of element.querySelectorAll("td")) {
       const float = td.textContent
+        .replace(",-", ",00") // replace ,- with ,00
         .replace(",", ".") // only use periods
         .replace(/[^0-9\.]/g, "") // remove anything but numbers and periods
         .replace(/[.](?=.*[.])/g, "") // remove all but last period
