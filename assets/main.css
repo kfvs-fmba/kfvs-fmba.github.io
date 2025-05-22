@@ -81,11 +81,20 @@ table {
   margin-inline: auto;
   margin-top: 1em;
   border-spacing: 1em 0;
+
+  th {
+    text-align: left;
+  }
 }
 
 table[data-sum-column] td:first-of-type {
   text-align: right;
   font-family: monospace;
+}
+table[data-sum-column] td:not(:first-of-type),
+table th span {
+  opacity: .4;
+  font-weight: normal;
 }
 table[data-sum-column] tr:last-of-type {
   background: yellow;
