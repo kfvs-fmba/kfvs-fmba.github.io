@@ -52,6 +52,13 @@ addEventListener("DOMContentLoaded", () => {
 
       sum += float
     }
-    element.querySelector("tbody").insertAdjacentHTML('beforeend', `<tr><th>Total /md.</th><td>${sum.toLocaleString()}</td></td>`)
+    element.querySelector("tbody").insertAdjacentHTML('beforeend', `<tr><th>Total /md.</th><td>${localize(sum)}</td></td>`)
   }
 })
+
+function localize(value) {
+  return value.toLocaleString("da-DK", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+}

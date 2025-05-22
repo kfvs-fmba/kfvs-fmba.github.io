@@ -83,7 +83,13 @@ table {
   border-spacing: 1em 0;
 }
 
-table[data-sum-column] td { text-align: right }
+table[data-sum-column] td:first-of-type {
+  text-align: right;
+  font-family: monospace;
+}
+table[data-sum-column] tr:last-of-type {
+  background: yellow;
+}
 
 /* "Logo" */
 h1 {
