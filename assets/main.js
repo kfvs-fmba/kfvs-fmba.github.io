@@ -22,16 +22,36 @@ addEventListener("DOMContentLoaded", () => {
   }
 
   // Sum columns
-  for (const element of document.querySelectorAll("table[data-sum]")) {
+  for (const element of document.querySelectorAll("table[data-sum-column]")) {
+    const sumColumn = element.dataset.sumColumn
+    const frequencyColumn = element.dataset.frequencyColumn
+
     let sum = 0;
-    for (const td of element.querySelectorAll("td")) {
-      const float = td.textContent
+    for (const tr of element.querySelectorAll("tr")) {
+      const td = tr.querySelector(`:nth-child(${sumColumn})`)
+      let text = td.textContent
         .replace(",-", ",00") // replace ,- with ,00
         .replace(",", ".") // only use periods
         .replace(/[^0-9\.]/g, "") // remove anything but numbers and periods
         .replace(/[.](?=.*[.])/g, "") // remove all but last period
-      sum += parseFloat(float)
+      let float = parseFloat(text)
+
+      if (frequencyColumn) {
+        const frequency = tr.querySelector(`:nth-child(${frequencyColumn})`)
+        switch (frequency.textContent) {
+          case "/år":
+            float /= 12
+            break;
+          case "/kvartal":
+            float /= 3
+            break;
+          default:
+            console.log(frequency.textContent)
+        }
+      }
+
+      sum += float
     }
-    element.insertAdjacentHTML('beforeend',`<tr><th>Total</th><td>${sum.toLocaleString()}</td></td>`)
+    element.querySelector("tbody").insertAdjacentHTML('beforeend', `<tr><th>Total /md.</th><td>${sum.toLocaleString()}</td></td>`)
   }
 })

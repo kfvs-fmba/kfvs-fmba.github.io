@@ -83,7 +83,7 @@ table {
   border-spacing: 1em 0;
 }
 
-table[data-sum] td { text-align: right }
+table[data-sum-column] td { text-align: right }
 
 /* "Logo" */
 h1 {
