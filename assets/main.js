@@ -22,42 +22,53 @@ addEventListener("DOMContentLoaded", () => {
   }
 
   // Sum columns
-  for (const element of document.querySelectorAll("table[data-sum-column]")) {
-    const sumColumn = element.dataset.sumColumn
-    const frequencyColumn = element.dataset.frequencyColumn
+  for (const table of document.querySelectorAll("table[data-sum-column]")) {
+    const sumColumnIndex = table.dataset.sumColumn
+    const frequencyColumnIndex = table.dataset.frequencyColumn
 
-    let sum = 0;
-    for (const tr of element.querySelectorAll("tr")) {
-      const td = tr.querySelector(`:nth-child(${sumColumn})`)
-      let text = td.textContent
-        .replace(",-", ",00") // replace ,- with ,00
-        .replace(",", ".") // only use periods
-        .replace(/[^0-9\.]/g, "") // remove anything but numbers and periods
-        .replace(/[.](?=.*[.])/g, "") // remove all but last period
-      let float = parseFloat(text)
+    let sum = 0
+    for (const row of table.querySelectorAll("tr")) {
+      const cell = row.querySelector(`:nth-child(${sumColumnIndex})`).textContent
+      let number = parseNumber(cell)
 
-      if (frequencyColumn) {
-        const frequency = tr.querySelector(`:nth-child(${frequencyColumn})`)
-        switch (frequency.textContent) {
-          case "/år":
-            float /= 12
-            break;
-          case "/kvartal":
-            float /= 3
-            break;
-          default:
-            console.log(frequency.textContent)
-        }
+      if (frequencyColumnIndex) {
+        const frequency = row.querySelector(`:nth-child(${frequencyColumnIndex})`).textContent
+        number = adjustByFrequency(number, frequency)
       }
 
-      sum += float
+      sum += number
     }
-    element.querySelector("tbody").insertAdjacentHTML('beforeend', `<tr><th>Total /md.</th><td>${localize(sum)}</td></td>`)
+    table.querySelector("tbody").insertAdjacentHTML(
+      'beforeend',
+      `<tr><th>Total /md.</th><td>${formatNumber(sum)}</td></td>`
+    )
   }
 })
 
-function localize(value) {
-  return value.toLocaleString("da-DK", {
+const LOCALE = "da-DK"
+
+function adjustByFrequency(float, frequency) {
+  switch (frequency) {
+    case "/år":
+      return float /= 12
+    case "/kvartal":
+      return float /= 3
+    default:
+      return float
+  }
+}
+
+function parseNumber(text) {
+  const replaced = text
+    .replace(",-", ",00") // replace ,- with ,00
+    .replace(",", ".") // only use periods
+    .replace(/[^0-9\.]/g, "") // remove anything but numbers and periods
+    .replace(/[.](?=.*[.])/g, "") // remove all but last period
+  return parseFloat(replaced)
+}
+
+function formatNumber(float) {
+  return float.toLocaleString(LOCALE, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
